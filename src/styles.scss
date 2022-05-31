@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+$azul-primario: #58b3e7;
+$azul-oscuro: #216c97;
+$azul-claro: #bde5fb;
+$negro: #031926;
+$amarillo: #f8c600;
+$amarillo-oscuro: #ce8800;
+$light: #ffffff;
+$gray: #e7e9eb;
+
+$radius: 1rem;
+$sombra-sutil: 4px 7px 22px -12px rgba(0, 0, 0, 0.5);
+$sombra-selected: 4px 7px 22px -5px rgba(0, 0, 0, 0.5);
+$borde-azul-oscuro: 2px solid $azul-oscuro;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $azul-claro;
+}
+
+.container {
+  margin-top: 5rem;
+}
+
+.productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .buscar {
+    margin: 1rem;
+    width: 30vw;
+    height: 2rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    text-indent: 1.5rem;
+    box-shadow: inset $sombra-sutil;
+  }
+
+  .__contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.card {
+  @include flexCenter();
+
+  background-color: white;
+  color: $negro;
+  align-items: center;
+  width: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: $radius;
+  margin: 0.5rem;
+  box-shadow: $sombra-sutil;
+  border: 2px solid $azul-oscuro;
+
+  &__pie {
+    display: inline;
+  }
+
+  &__nombre {
+    font-size: 1.6rem;
+  }
+
+  &__marca {
+    font-size: 1.3rem;
+  }
+
+  &__precio {
+    font-size: 1.5rem;
+  }
+
+  &__btn {
+    color: $amarillo-oscuro;
+    cursor: pointer;
+    margin-top: 15px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.btn {
+  background-color: $amarillo;
+  height: 2rem;
+  width: 6rem;
+  text-align: center;
+  line-height: 2rem;
+  color: $azul-oscuro;
+  border-radius: 3px;
+  border: $borde-azul-oscuro;
+  cursor: pointer;
+
+  &:active {
+    color: white;
+    border: 2px solid white;
+  }
+}
+
+.addTag {
+  @include flexCenter();
+
+  &__elements {
+    display: flex;
+    font-size: large;
+
+    input {
+      margin-right: 1rem;
+      border-radius: 1rem;
+      text-indent: 1rem;
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+
+  &__box {
+    position: relative;
+    width: 50%;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 1rem;
+    border: $borde-azul-oscuro;
+    margin: 20px auto;
+    padding: 20px;
+    padding-top: 10px;
+  }
+
+  &__close {
+    cursor: pointer;
+    text-align: end;
+    font-size: 2em;
+    transform: rotate(45deg);
+    transform-origin: right;
+    color: $azul-oscuro;
+
+    & span:active {
+      color: $amarillo-oscuro;
+    }
+
+    & span:hover {
+      transform: scale(1.2, 1.2);
+    }
+  }
+}
+
+.categorias {
+  @include flexCenter();
+
+  ul {
+    font-size: 2rem;
+    justify-content: left;
+
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background-color: white;
+    border-radius: 5px;
+    border: $borde-azul-oscuro;
+    padding: 1rem;
+    padding-right: 2rem;
+    margin: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $azul-primario;
+      color: white;
+    }
+  }
+}
+
+.home-div {
+  cursor: pointer;
+
+  h3:hover {
+    transform: scale(1.5);
+    transform-origin: left;
+    color: $amarillo-oscuro;
+  }
+
+  h3:active {
+    transform: scale(1.2);
+    transform-origin: left;
+    color: red;
+  }
+}
+
+// Card style
+.custom-card {
+  width: 220px;
+  border-radius: 15px !important;
+  background-color: $light;
+}
+
+.subtitle-card {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.card-details {
+  font-size: 25px;
+  font-weight: 100;
+  display: inline;
+}
+
+.subtotal {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: -15px;
+}
+
+.total {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: right;
+  margin-top: -12px;
+  margin-bottom: 7px;
+}
+
+.total-cupon {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: left;
+  margin-top: -12px;
+  margin-bottom: 7px;
+}
+// Card styles.
+
+// Modal styles.
+.modal-header {
+  display: inline;
+  background-color: $azul-primario;
+  text-align: right;
+}
+
+.detail-modal {
+  padding-right: 17px;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.modal-main {
+  font-size: 25px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: -13px;
+}
+
+.modal-item {
+  display: flex;
+  justify-content: space-between;
+  height: 25px;
+}
+
+.modal-bottom {
+  text-align: right;
+}
+
+.modal-price {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.modal-price-bottom {
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.exit-modal {
+  text-align: right;
+  margin-bottom: 0;
+  font-style: normal;
+  color: #ffffff;
+}
+// Modal styles.
+
+// Container
+.auth-container {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.btn-form {
+    background-color: $amarillo;
+    height: 2rem;
+    width: 100%;
+    margin-top: 5%;
+    line-height: 2rem;
+    color: $azul-oscuro;
+    border-radius: 3px;
+    border: $borde-azul-oscuro;
+    cursor: pointer;
+  
+    &:active {
+      color: white;
+      border: 2px solid white;
+    }
+  }
+
+.navbar {
+  position: fixed;
+  background-color: $azul-primario;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  height: 5rem;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  .nav-item {
+    color: $amarillo;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+}
